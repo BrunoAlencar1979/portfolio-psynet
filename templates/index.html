@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsyNet | Engenharia & Tecnologia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="bg-gradient"></div>
+
+    <nav data-aos="fade-down" data-aos-duration="1000">
+        <div class="container nav-container">
+            <div class="logo">Psy<span>Net</span></div>
+            <ul class="menu">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#planos">Planos</a></li>
+                <li><a href="#contato" class="btn-nav">Fale Comigo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="text-box" data-aos="fade-right" data-aos-duration="1000">
+                <h2>Engenharia & Performance</h2>
+                <h1>Soluções Digitais <br><span>Inteligentes</span></h1>
+                <p>Do hardware de alta performance ao software sob medida. A PsyNet moderniza o seu negócio com a precisão da engenharia.</p>
+                <div class="buttons">
+                    <a href="#planos" class="cta-button glow-effect">Ver Planos</a>
+                    <a href="#portfolio" class="cta-outline">Meus Projetos</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="servicos" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O Que Fazemos</h2>
+            <div class="grid">
+                <div class="card glass" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fa-solid fa-code icon-glow"></i>
+                    <h3>Dev. Fullstack</h3>
+                    <p>Sites institucionais e sistemas web complexos usando Python/Flask e Bancos de Dados.</p>
+                </div>
+                <div class="card glass" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fa-solid fa-microchip icon-glow"></i>
+                    <h3>Hardware Lab</h3>
+                    <p>Montagem de Workstations, PCs Gamer e infraestrutura de redes para empresas.</p>
+                </div>
+                <div class="card glass" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fa-solid fa-brain icon-glow"></i>
+                    <h3>Automação IA</h3>
+                    <p>Robôs e scripts (Bots) para automatizar tarefas repetitivas no seu computador.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="anuncios" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Destaques PsyNet</h2>
+            
+            <div class="swiper mySwiperAds" data-aos="zoom-in">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide glass-slide">
+                        <img src="{{ url_for('static', filename='img/anuncio_servicos.jpg') }}" alt="Serviços PsyNet">
+                    </div>
+                    <div class="swiper-slide glass-slide">
+                        <img src="{{ url_for('static', filename='img/anuncio_montagem.jpg') }}" alt="Montagem PsyNet">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Portfólio de Engenharia</h2>
+            
+            <div class="swiper mySwiperPortfolio" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide portfolio-item glass">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/vSWH4-QDBlI" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Hardware Master</h4>
+                            <p>Manutenção avançada e otimização.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide portfolio-item glass">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/DBxdfEGG-j8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>Sistema Web</h4>
+                            <p>Desenvolvimento para gestão escolar.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide portfolio-item glass">
+                        <img src="{{ url_for('static', filename='img/pc_gamer_montado.jpg') }}" alt="PC Gamer" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Projeto+Em+Breve'">
+                        <div class="portfolio-info">
+                            <h4>Setup Custom</h4>
+                            <p>Montagem de alta performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Planos Mensais</h2>
+            <div class="pricing-grid">
+                
+                <div class="price-card glass" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Web Start</h3>
+                    <div class="price">R$ 350<span>/mês</span></div>
+                    <ul class="features">
+                        <li>✅ Site Institucional Incluso</li>
+                        <li>✅ Hospedagem Gerenciada</li>
+                        <li>✅ Suporte Web (Horário Comercial)</li>
+                        <li>❌ Suporte de Hardware</li>
+                    </ul>
+                    <a href="https://wa.me/5527996037897?text=Ola,%20tenho%20interesse%20no%20Plano%20Web%20Start" class="btn-outline" target="_blank">Assinar Start</a>
+                </div>
+
+                <div class="price-card glass destaque" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tag">Recomendado</div>
+                    <h3>PsyNet Pro</h3>
+                    <div class="price">R$ 550<span>/mês</span></div>
+                    <ul class="features">
+                        <li>✅ <strong>Site + Sistema Básico</strong></li>
+                        <li>✅ Suporte Remoto de TI (PCs)</li>
+                        <li>✅ Gestão de Emails e Segurança</li>
+                        <li>✅ Consultoria Mensal</li>
+                    </ul>
+                    <a href="https://wa.me/5527996037897?text=Ola,%20tenho%20interesse%20no%20Plano%20PsyNet%20Pro" class="btn-solid glow-effect" target="_blank">Assinar Pro</a>
+                </div>
+
+                <div class="price-card glass" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Enterprise</h3>
+                    <div class="price">Consultar</div>
+                    <ul class="features">
+                        <li>✅ Desenvolvimento de Software Full</li>
+                        <li>✅ Gestão Completa de Redes</li>
+                        <li>✅ Automação com IA (Bots)</li>
+                        <li>✅ Visitas Presenciais</li>
+                    </ul>
+                    <a href="https://wa.me/5527996037897?text=Ola,%20gostaria%20de%20um%20projeto%20Enterprise" class="btn-outline" target="_blank">Falar com Engenheiro</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container footer-content">
+            <h2>Vamos construir algo incrível?</h2>
+            <div class="contacts-area">
+                <a href="https://wa.me/5527996037897" target="_blank" class="contact-btn whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
+                </a>
+                <a href="mailto:contato@psynet.net.br" class="contact-btn email">
+                    <i class="fa-regular fa-envelope"></i> Enviar E-mail
+                </a>
+            </div>
+            <p class="copy">© 2025 PsyNet Tecnologia. Desenvolvido em Python.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Inicia as animações
+        
+        // Configuração dos Sliders
+        var swiperAds = new Swiper(".mySwiperAds", {
+            effect: "cards",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            autoplay: { delay: 4000 }
+        });
+
+        var swiperPortfolio = new Swiper(".mySwiperPortfolio", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+    </script>
+</body>
+</html>
