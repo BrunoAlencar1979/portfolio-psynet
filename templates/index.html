@@ -28,9 +28,13 @@
 
     <header class="hero">
         <div class="container hero-content">
-            <div class="text-box" data-aos="fade-right" data-aos-duration="1000">
+            <div class="text-box floating-hero" data-aos="fade-right" data-aos-duration="1000">
                 <h2>Engenharia & Performance</h2>
-                <h1>Soluções Digitais <br><span>Inteligentes</span></h1>
+                
+                <h1>Soluções Digitais <br>
+                    <span class="neon-text" id="typing-text"></span><span class="cursor-blink"></span>
+                </h1>
+
                 <p>Do hardware de alta performance ao software sob medida. A PsyNet moderniza o seu negócio com a precisão da engenharia.</p>
                 <div class="buttons">
                     <a href="#planos" class="cta-button glow-effect">Ver Planos</a>
@@ -182,7 +186,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init(); // Inicia as animações
+        AOS.init(); 
         
         // Configuração dos Sliders
         var swiperAds = new Swiper(".mySwiperAds", {
@@ -202,6 +206,40 @@
                 1024: { slidesPerView: 3 }
             }
         });
+
+        // === SCRIPT DO EFEITO DE DIGITAÇÃO (TYPEWRITER) ===
+        const textElement = document.getElementById('typing-text');
+        const words = ["Inteligentes", "Modernas", "Robustas", "de Engenharia"]; 
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 100 : 150; 
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Espera antes de apagar
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
     </script>
 </body>
 </html>
