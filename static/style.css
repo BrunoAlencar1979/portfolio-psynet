@@ -115,11 +115,50 @@ nav {
 .card p { color: var(--text-dim); }
 
 /* Sliders */
+/* --- SLIDERS ATUALIZADOS (Copie e substitua essa parte) --- */
+
 .swiper { padding-bottom: 50px; width: 100%; }
-.swiper-slide img { width: 100%; border-radius: 10px; }
-.mySwiperAds { max-width: 800px; }
-.mySwiperAds .swiper-slide { width: 300px; height: 450px; display: flex; align-items: center; justify-content: center; background: transparent; }
-.mySwiperAds img { max-height: 100%; object-fit: contain; }
+
+/* Configuração do Container de Anúncios */
+.mySwiperAds {
+    max-width: 1000px; /* Aumentei a largura máxima para caberem grandes */
+    padding: 20px;     /* Espaço para a sombra não cortar */
+}
+
+/* Estilo de cada Slide de Anúncio */
+.mySwiperAds .swiper-slide {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.8; /* Levemente transparente quando não está focado */
+}
+
+/* A IMAGEM GRANDE */
+.mySwiperAds img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra base */
+    transition: all 0.4s ease;
+    border: 2px solid transparent; /* Prepara para a borda neon */
+}
+
+/* ANIMAÇÃO LEGAL (HOVER) */
+/* Quando passar o mouse ou o slide estiver ativo */
+.mySwiperAds .swiper-slide:hover, 
+.mySwiperAds .swiper-slide-active {
+    transform: scale(1.05) translateY(-10px); /* Cresce e sobe um pouco */
+    opacity: 1; /* Fica totalmente visível */
+    z-index: 10;
+}
+
+.mySwiperAds .swiper-slide:hover img,
+.mySwiperAds .swiper-slide-active img {
+    box-shadow: 0 0 30px var(--primary); /* Brilho Neon Azul Forte */
+    border-color: var(--primary);
+}
 
 /* Portfólio */
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px 10px 0 0; }

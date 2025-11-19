@@ -16,7 +16,7 @@
 
     <nav data-aos="fade-down" data-aos-duration="1000">
         <div class="container nav-container">
-            <div class="logo">Psy<span>Net</span></div>
+            <a href="/" class="logo">Psy<span>Net</span></a>
             <ul class="menu">
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#portfolio">Portfólio</a></li>
@@ -189,21 +189,24 @@
         AOS.init(); 
         
         // Configuração dos Sliders
+        // Configuração NOVA dos Anúncios (Lado a Lado e Grande)
         var swiperAds = new Swiper(".mySwiperAds", {
-            effect: "cards",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            autoplay: { delay: 4000 }
-        });
-
-        var swiperPortfolio = new Swiper(".mySwiperPortfolio", {
-            slidesPerView: 1,
+            slidesPerView: 1,   // No celular mostra 1
             spaceBetween: 30,
-            pagination: { el: ".swiper-pagination", clickable: true },
+            loop: true,         // Fica girando infinito
             breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
+                768: {
+                    slidesPerView: 2, // No computador mostra 2 lado a lado
+                    spaceBetween: 50, // Espaço entre eles
+                }
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             }
         });
 
