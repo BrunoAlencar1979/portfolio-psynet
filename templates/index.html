@@ -74,10 +74,14 @@
             <div class="swiper mySwiperAds" data-aos="zoom-in">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide glass-slide">
-                        <a href="#servicos"><img src="{{ url_for('static', filename='img/anuncio_software.jpg') }}" alt="Engenharia de Software"></a>
+                        <a href="#servicos">
+                            <img src="{{ url_for('static', filename='img/anuncio_software.jpg') }}" alt="Engenharia de Software">
+                        </a>
                     </div>
                     <div class="swiper-slide glass-slide">
-                        <a href="#servicos"><img src="{{ url_for('static', filename='img/anuncio_hardware.jpg') }}" alt="Engenharia de Hardware"></a>
+                        <a href="#servicos">
+                            <img src="{{ url_for('static', filename='img/anuncio_hardware.jpg') }}" alt="Engenharia de Hardware">
+                        </a>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -86,39 +90,19 @@
     </section>
 
     <section id="portfolio" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Portfólio de Engenharia</h2>
+        <div class="container portfolio-single-video-container" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">Portfólio de Engenharia</h2>
             
-            <div class="swiper mySwiperPortfolio" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide portfolio-item glass">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/vSWH4-QDBlI" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>Hardware Master</h4>
-                            <p>Manutenção avançada e otimização.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide portfolio-item glass">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/DBxdfEGG-j8" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>Sistema Web</h4>
-                            <p>Desenvolvimento para gestão escolar.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide portfolio-item glass">
-                        <img src="{{ url_for('static', filename='img/pc_gamer_montado.jpg') }}" alt="PC Gamer" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Projeto+Em+Breve'">
-                        <div class="portfolio-info">
-                            <h4>Setup Custom</h4>
-                            <p>Montagem de alta performance.</p>
-                        </div>
-                    </div>
+            <div class="single-video-wrapper glass">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/DBxdfEGG-j8" title="Sistema Web Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="portfolio-info">
+                    <h4>Sistema Web</h4>
+                    <p>Desenvolvimento para gestão escolar.</p>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -188,16 +172,15 @@
     <script>
         AOS.init(); 
         
-        // Configuração dos Sliders
-        // Configuração NOVA dos Anúncios (Lado a Lado e Grande)
+        // Configuração do Slider de ANÚNCIOS (Lado a Lado)
         var swiperAds = new Swiper(".mySwiperAds", {
-            slidesPerView: 1,   // No celular mostra 1
+            slidesPerView: 1,
             spaceBetween: 30,
-            loop: true,         // Fica girando infinito
+            loop: true,
             breakpoints: {
                 768: {
-                    slidesPerView: 2, // No computador mostra 2 lado a lado
-                    spaceBetween: 50, // Espaço entre eles
+                    slidesPerView: 2, 
+                    spaceBetween: 50,
                 }
             },
             autoplay: {
@@ -210,7 +193,10 @@
             }
         });
 
-        // === SCRIPT DO EFEITO DE DIGITAÇÃO (TYPEWRITER) ===
+        // O slider de portfólio foi removido, então não precisamos mais inicializá-lo
+        // var swiperPortfolio = new Swiper(".mySwiperPortfolio", {...});
+
+        // Script de Digitação
         const textElement = document.getElementById('typing-text');
         const words = ["Inteligentes", "Modernas", "Robustas", "de Engenharia"]; 
         let wordIndex = 0;
@@ -219,7 +205,6 @@
 
         function type() {
             const currentWord = words[wordIndex];
-            
             if (isDeleting) {
                 textElement.textContent = currentWord.substring(0, charIndex - 1);
                 charIndex--;
@@ -229,19 +214,16 @@
             }
 
             let typeSpeed = isDeleting ? 100 : 150; 
-
             if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000; // Espera antes de apagar
+                typeSpeed = 2000; 
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
                 typeSpeed = 500;
             }
-
             setTimeout(type, typeSpeed);
         }
-
         document.addEventListener('DOMContentLoaded', type);
     </script>
 </body>
