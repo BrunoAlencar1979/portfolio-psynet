@@ -58,6 +58,40 @@ nav {
 .hero h1 span { background: linear-gradient(to right, var(--primary), #fff); -webkit-background-clip: text; color: transparent; }
 .hero p { color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin: 0 auto 40px; }
 
+/* Animação de Flutuação do Hero */
+.floating-hero {
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Animação do Texto Neon e Cursor */
+@keyframes textShine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.neon-text {
+    background: linear-gradient(to right, var(--primary), var(--secondary), #fff, var(--primary));
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textShine 3s linear infinite;
+    font-weight: 800;
+}
+.cursor-blink::after {
+    content: '|';
+    color: var(--primary);
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .buttons { display: flex; gap: 20px; justify-content: center; }
 .cta-button {
     padding: 15px 40px; border-radius: 50px; background: var(--primary); color: #000;
@@ -83,7 +117,6 @@ nav {
 /* Sliders */
 .swiper { padding-bottom: 50px; width: 100%; }
 .swiper-slide img { width: 100%; border-radius: 10px; }
-/* Ajuste específico para slider de anúncios estilo cards */
 .mySwiperAds { max-width: 800px; }
 .mySwiperAds .swiper-slide { width: 300px; height: 450px; display: flex; align-items: center; justify-content: center; background: transparent; }
 .mySwiperAds img { max-height: 100%; object-fit: contain; }
@@ -118,7 +151,7 @@ footer { padding: 80px 0; text-align: center; background: rgba(0,0,0,0.5); margi
 /* Responsivo */
 @media (max-width: 768px) {
     .hero h1 { font-size: 3rem; }
-    .menu { display: none; } /* Menu mobile simplificado */
+    .menu { display: none; }
     .price-card.destaque { transform: scale(1); }
     .contacts-area { flex-direction: column; align-items: center; }
 }
