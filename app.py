@@ -9,12 +9,21 @@ app = Flask(__name__)
 
 # --- CONFIGURAÇÃO DO GOOGLE SHEETS ---
 def conectar_planilha():
-    # Define o escopo de acesso do Google
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("credenciais.json", scope)
+    
+    # Tenta buscar a chave no "Cofre Invisível" do Servidor
+    chave_secreta_servidor = os.environ.get('GOOGLE_CREDENTIALS')
+    
+    if chave_secreta_servidor:
+        # Estamos na Nuvem! Lê o texto da variável de ambiente
+        credenciais_dict = json.loads(chave_secreta_servidor)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(credenciais_dict, scope)
+    else:
+        # Estamos no PC do Bruno! Lê o arquivo físico
+        creds = ServiceAccountCredentials.from_json_keyfile_name("credenciais.json", scope)
+        
     client = gspread.authorize(creds)
-    # Abre a planilha pelo nome exato que está no seu Google Drive
-    return client.open("PsyNet_Licencas").sheet1 
+    return client.open("PsyNet_Licencas").sheet1
 
 @app.route('/')
 def home():
