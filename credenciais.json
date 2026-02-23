@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "psynet-saas",
+  "private_key_id": "a8a73af90b7f28c87c0e74da2929b1a41d3e6e8b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDpNlcsxDs9XG+c\nJ7WMeRUG4NHt5Aqo0DchN8I7E6NknQ1a38me1z8Z9BNwKWzW3ZCpNVlEIEZExvuZ\n0xyfFIkUDpeazFA/AEU7D9CB2AagN/KhEslMdLfvsuelt+3IJ6ZdQXZ1GwQaQool\npGTl8DsRkpkxspVdhVvvcBX/lvkSZ7pzfj2bXrLSFiWphGWkVeXfJFTsysMptFT4\nbuw0sBqGVeQixeAAcKdubN1AzYv5XlV+yEv+D7vJmKPCa0r0i/YYIKwWa+0hRN9T\nnm3bJUA6TN3vqFWddhsS5q6OkHlEklVY2cAsOIN9EsT6AQaBmZAmzhWre9gth27t\nENmoiJFxAgMBAAECggEAGl81vm82T7sLN/pZklgC47M6qg8WkX5yLYRzp2CSIoeM\nAhG6aAbpMNMj+5QDpcyKVkgdHxITQCXMP9naq7aTxbvcsvmVvXoXWhVwu64lGasZ\n+dL5BndQcX+mqFvDPNYW/wavEZELhritjJIpgsMGuvb78d3C/D9fZRUkt7Fn2we+\njPoQS+FZG1+RUF2oMVRItsMsxozq6b2O6hdphFrozUZ3GRHPgxTHdDgGBVp0ZsYm\nlPKhFW9yI3f6k33eEChwbpdUe3iSyuV/ZwyPxMaS8Oeeb/Kn55pPcLofdzy+9sRQ\n55IgjjGcjT7tNi73F0qepR+q2BsCoeoJhibp9O2w0QKBgQD5Yn2SPTeWxddNVvBV\nObaTeZSwYcMA9Fsp1RsbGqzWf8kd6Hok/boHBaEjQhR3UEX1yw3ExgiOTDq3gDAo\nvViOuPq+jY4UutvWFM3eN9UQH+L7pQC041qL3g2BIR/8Tm3+tootyvLbqOvsmdhy\n6neZyiTl8/EMt6SasJEP30rqxQKBgQDvZgbgtFm3QqC3gj/CYj8VOBJNH6VdCwQ9\nE/qa6UrDy2/q9pgevZ3o4ZO5Qa+W+/rcko9QQiGDrZXP85hhmgL9AxBnpuH7POnw\n8U0G1cTigKRsRbY+pldr3g5m5R/bdD/qT3DDdHAVXsqz3A8b0e9tgq6lNNXmnTUq\nPhKyZ+AmvQKBgH7aEnWonfYbfIDikC1Jxg0N8wwlLkP2B8knlTocP358UZjdAASA\n63dW7bg5jJ+EPZHhT4egFAoNzHA6zERsy/cNML5s0rDIu7oRqwY18DLbhWHrdIiO\nfShYMxZT+ykj29+MiozwhsglDJy1RNxvV5bqtAokI6EMaLYmyiMAueLhAoGBAK0e\n6gBbS7m0DAdIwJTweU/98XYmWW40hkcpCIQ4CuIWXwPaed1ZIDWF008YCkO0SxBx\nSAQxHo1b3Ue5j8udFWYkbhuW2jrWLRMZXKuBsVRe1QibTRR3NCcEOQP905Deu03V\nTuV5cYhyuUFh9OcYZP2bkHJWCA0ySH0Y0GqFpdo9AoGAeIXj5XUXeOKerMtaGhD3\nCfoZ4vNxfXQdkzrBvElI5KGjSsdAlaUgOeMopTn/5JjOO4cjzRURrb6/D4o/SDxQ\nRraHGZBnrt5099LQSMm4iPHOyoq57vUa1rOu43uo6u/iA0KfD37jJGCQ1KLI5GeD\nQrpfHFkJvSrRWjIxA0TChjc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "projeto-oficina@psynet-saas.iam.gserviceaccount.com",
+  "client_id": "102010236879343627697",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/projeto-oficina%40psynet-saas.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
