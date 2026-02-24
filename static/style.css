@@ -1,11 +1,10 @@
-/* Fonte Moderna */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap');
 
 :root {
     --bg-dark: #050505;
     --bg-panel: #121212;
-    --primary: #00d2ff; /* Azul Neon */
-    --secondary: #9d00ff; /* Roxo Neon */
+    --primary: #00d2ff; 
+    --secondary: #9d00ff; 
     --glass: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --text: #ffffff;
@@ -15,47 +14,46 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
 body { background-color: var(--bg-dark); color: var(--text); overflow-x: hidden; }
 
-/* Fundo Gradiente Global */
+/* 1. LUZES DE FUNDO DINÂMICAS (NEBULA) */
 .bg-gradient {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-    background: radial-gradient(circle at 10% 20%, rgba(157, 0, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(0, 210, 255, 0.15) 0%, transparent 50%);
+    background: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.08), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(157, 0, 255, 0.08), transparent 30%);
+    animation: pulseBackground 8s infinite alternate ease-in-out;
+}
+@keyframes pulseBackground {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* Estilo de Vidro (Glassmorphism) */
+/* 2. CARDS 3D E GLASSMORPHISM */
 .glass {
     background: var(--glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+.glass:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.15);
+    border-color: rgba(0, 210, 255, 0.4);
 }
 
 /* Navegação */
 nav {
-    padding: 20px 0;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
-    position: sticky; top: 0; z-index: 1000;
-    border-bottom: 1px solid var(--glass-border);
+    padding: 20px 0; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass-border);
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
-.logo { 
-    font-size: 1.8rem; 
-    font-weight: 800; 
-    background: linear-gradient(to right, var(--primary), var(--secondary)); 
-    -webkit-background-clip: text; 
-    color: transparent; 
-    text-decoration: none; 
-}
+.logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; color: transparent; text-decoration: none; }
 .menu { display: flex; gap: 30px; list-style: none; align-items: center; }
 .menu a { color: var(--text-dim); text-decoration: none; font-weight: 500; transition: 0.3s; }
 .menu a:hover { color: var(--primary); text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
-.btn-nav {
-    border: 1px solid var(--primary); padding: 8px 20px; border-radius: 50px; color: var(--primary) !important;
-}
+.btn-nav { border: 1px solid var(--primary); padding: 8px 20px; border-radius: 50px; color: var(--primary) !important; }
 .btn-nav:hover { background: var(--primary); color: #000 !important; box-shadow: 0 0 15px var(--primary); }
 
 /* Hero Section */
@@ -65,137 +63,63 @@ nav {
 .hero h1 span { background: linear-gradient(to right, var(--primary), #fff); -webkit-background-clip: text; color: transparent; }
 .hero p { color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin: 0 auto 40px; }
 
-/* Animação de Flutuação e Texto */
 .floating-hero { animation: float 6s ease-in-out infinite; }
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-@keyframes textShine {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-.neon-text {
-    background: linear-gradient(to right, var(--primary), var(--secondary), #fff, var(--primary));
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: textShine 3s linear infinite;
-    font-weight: 800;
-}
-.cursor-blink::after {
-    content: '|';
-    color: var(--primary);
-    animation: blink 1s step-end infinite;
-}
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
 
+/* 3. BOTÕES PULSANTES (GLOW EFFECT) */
 .buttons { display: flex; gap: 20px; justify-content: center; }
-.cta-button {
-    padding: 15px 40px; border-radius: 50px; background: var(--primary); color: #000;
-    text-decoration: none; font-weight: 800; transition: 0.3s;
-}
-.cta-outline {
-    padding: 15px 40px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); color: #fff;
-    text-decoration: none; font-weight: 600; transition: 0.3s;
-}
-.glow-effect:hover { box-shadow: 0 0 25px var(--primary); transform: scale(1.05); }
-.cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+.cta-button, .btn-solid { padding: 15px 40px; border-radius: 50px; background: var(--primary); color: #000; text-decoration: none; font-weight: 800; transition: 0.3s; display: inline-block; border: none; cursor: pointer; }
+.cta-outline, .btn-outline { padding: 15px 40px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; }
+.cta-outline:hover, .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
-/* Serviços */
+.glow-effect { animation: glowPulse 2s infinite; transition: all 0.3s ease; }
+.glow-effect:hover { transform: scale(1.05); letter-spacing: 1px; }
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 210, 255, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(0, 210, 255, 0.8); }
+}
+
+/* Serviços e Seções Padrão */
 .section { padding: 100px 0; }
 .section-title { font-size: 3rem; text-align: center; margin-bottom: 60px; font-weight: 800; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { padding: 40px; text-align: center; transition: 0.4s; }
-.card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
+.card { padding: 40px; text-align: center; }
 .icon-glow { font-size: 3rem; color: var(--primary); margin-bottom: 20px; drop-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
 .card h3 { margin-bottom: 10px; font-size: 1.5rem; }
 .card p { color: var(--text-dim); }
 
-/* Sliders de Anúncios */
+/* --- ESTILOS DA PÁGINA DE VENDAS (TESTE GRÁTIS) --- */
+.tour-section { margin-top: 60px; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 20px; }
+.print-card { display: flex; align-items: center; background: rgba(30, 30, 36, 0.6); margin-bottom: 30px; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); flex-wrap: wrap; transition: 0.4s; }
+.print-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
+.print-card img { width: 50%; object-fit: cover; min-width: 300px; flex-grow: 1; border-right: 1px solid var(--glass-border); }
+.print-text { padding: 40px; width: 50%; min-width: 300px; flex-grow: 1; }
+.print-text h3 { color: #f1c40f; font-size: 1.8em; margin-top: 0; margin-bottom: 15px; }
+.print-text p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.6; }
+.video-container { background: var(--glass); padding: 10px; border-radius: 15px; border: 1px solid var(--glass-border); margin: 30px auto; max-width: 800px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+
+/* Formulário de Captura (Lead) */
+.lead-form { background: linear-gradient(145deg, rgba(30,30,36,0.8), rgba(18,18,20,0.9)); padding: 50px 40px; border-radius: 20px; text-align: center; max-width: 550px; margin: 60px auto; border: 2px solid var(--primary); box-shadow: 0px 0px 30px rgba(0, 210, 255, 0.15); position: relative; overflow: hidden; }
+.lead-form::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent); transform: skewX(-25deg); animation: formShine 6s infinite; }
+@keyframes formShine { 0% { left: -100%; } 20%, 100% { left: 200%; } }
+.lead-form input { width: 100%; padding: 18px; margin: 12px 0; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.5); color: white; font-size: 1.1em; outline: none; transition: 0.3s; }
+.lead-form input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); }
+.btn-baixar { background: #27ae60; color: white; padding: 18px 30px; font-size: 1.2em; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; width: 100%; margin-top: 20px; transition: 0.3s; box-shadow: 0 10px 20px rgba(39, 174, 96, 0.3); }
+.btn-baixar:hover { background: #219653; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(39, 174, 96, 0.4); }
+
+/* Sliders e Portfólio */
 .swiper { padding-bottom: 50px; width: 100%; }
-.mySwiperAds {
-    max-width: 1000px; 
-    padding: 20px;    
-}
-.mySwiperAds .swiper-slide {
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    opacity: 0.8; 
-}
-.mySwiperAds img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
-    transition: all 0.4s ease;
-    border: 2px solid transparent;
-}
-/* Animação Hover nos Anúncios */
-.mySwiperAds .swiper-slide:hover, 
-.mySwiperAds .swiper-slide-active {
-    transform: scale(1.05) translateY(-10px);
-    opacity: 1;
-    z-index: 10;
-}
-.mySwiperAds .swiper-slide:hover img,
-.mySwiperAds .swiper-slide-active img {
-    box-shadow: 0 0 30px var(--primary); 
-    border-color: var(--primary);
-}
+.mySwiperAds { max-width: 1000px; padding: 20px; }
+.mySwiperAds .swiper-slide { display: flex; justify-content: center; align-items: center; transition: transform 0.4s ease, opacity 0.4s ease; opacity: 0.8; }
+.mySwiperAds img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); transition: all 0.4s ease; border: 2px solid transparent; }
+.mySwiperAds .swiper-slide:hover, .mySwiperAds .swiper-slide-active { transform: scale(1.05) translateY(-10px); opacity: 1; z-index: 10; }
+.mySwiperAds .swiper-slide:hover img, .mySwiperAds .swiper-slide-active img { box-shadow: 0 0 30px var(--primary); border-color: var(--primary); }
 
-
-/* --- SEÇÃO DE VÍDEO ÚNICO (PORTFÓLIO) --- */
-.portfolio-single-video-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza o vídeo na horizontal */
-    max-width: 900px; /* Limita a largura do container principal */
-    margin: 0 auto;
-}
-
-.single-video-wrapper {
-    width: 100%; /* Ocupa a largura máxima do container acima */
-    padding: 25px; /* Espaço interno para o efeito glass */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo dentro do wrapper */
-    margin-top: 30px;
-}
-
-.video-container { 
-    position: relative; 
-    width: 100%; /* Ocupa 100% da largura do single-video-wrapper */
-    padding-bottom: 56.25%; /* Proporção 16:9 para vídeos */
-    height: 0; 
-    overflow: hidden; 
-    border-radius: 10px; /* Bordas arredondadas para o vídeo */
-}
-.video-container iframe { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    border: 0; 
-}
-
-.portfolio-info { 
-    padding: 20px 0 0; /* Espaço acima do texto */
-    text-align: center; /* Centraliza o texto */
-    width: 100%; /* Garante que o texto ocupe a largura total */
-}
+.portfolio-single-video-container { display: flex; flex-direction: column; align-items: center; max-width: 900px; margin: 0 auto; }
+.single-video-wrapper { width: 100%; padding: 25px; display: flex; flex-direction: column; align-items: center; margin-top: 30px; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.portfolio-info { padding: 20px 0 0; text-align: center; width: 100%; }
 .portfolio-info h4 { font-size: 1.8rem; margin-bottom: 5px; }
-.portfolio-info p { color: var(--text-dim); font-size: 1.1rem; }
-
 
 /* Planos */
 .pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
@@ -206,9 +130,17 @@ nav {
 .price span { font-size: 1rem; color: var(--text-dim); }
 .features { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
 .features li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); }
-.btn-solid { width: 100%; padding: 15px; background: var(--secondary); color: #fff; text-align: center; border-radius: 10px; text-decoration: none; font-weight: bold; border: none; display: block; }
-.btn-outline { width: 100%; padding: 15px; border: 1px solid var(--text-dim); color: #fff; text-align: center; border-radius: 10px; text-decoration: none; display: block; transition: 0.3s; }
-.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+/* 4. BOTÃO WHATSAPP FLUTUANTE */
+.whatsapp-float {
+    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+    background-color: #25d366; color: white; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 35px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999; transition: all 0.3s ease; animation: bounceWpp 2s infinite;
+}
+.whatsapp-float:hover { transform: scale(1.15); background-color: #20b858; color: white; }
+@keyframes bounceWpp { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
 /* Footer */
 footer { padding: 80px 0; text-align: center; background: rgba(0,0,0,0.5); margin-top: 50px; }
@@ -225,30 +157,7 @@ footer { padding: 80px 0; text-align: center; background: rgba(0,0,0,0.5); margi
     .menu { display: none; }
     .price-card.destaque { transform: scale(1); }
     .contacts-area { flex-direction: column; align-items: center; }
-    /* Ajuste para o vídeo único no mobile */
-    .single-video-wrapper { padding: 15px; } /* Menos padding no mobile */
-}
-
-/* Estilos para Formulários */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-.input-field {
-    width: 100%;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--glass-border);
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
-}
-.input-field:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
-}
-.input-field::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    .print-card { flex-direction: column !important; }
+    .print-card img, .print-text { width: 100%; border-right: none; }
+    .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 30px; }
 }

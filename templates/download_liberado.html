@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Liberado - PsyNet ERP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+    
+    <div class="bg-gradient"></div>
+
+    <div class="container" style="max-width: 600px; text-align: center;">
+        <div class="glass" style="padding: 50px; border-top: 4px solid #27ae60;">
+            <h1 style="color: #27ae60; font-size: 2.5rem; margin-bottom: 10px;"><i class="fa-solid fa-circle-check"></i> Tudo Certo!</h1>
+            <h2 style="color: white; margin-bottom: 20px;">Acesso liberado para {{ nome }}</h2>
+            <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 30px;">Para o sistema funcionar perfeitamente, siga os 2 passos abaixo em ordem:</p>
+
+            <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; margin-bottom: 20px; text-align: left; border: 1px solid var(--glass-border);">
+                <h3 style="color: #f1c40f; margin-bottom: 10px;"><i class="fa-solid fa-database"></i> Passo 1: Motor de Dados</h3>
+                <p style="color: var(--text-dim); margin-bottom: 15px;">O PsyNet precisa do MySQL instalado no seu computador. Baixe o instalador oficial e avance até o fim.</p>
+                <a href="https://dev.mysql.com/downloads/mysql/8.0.html" target="_blank" class="btn-solid" style="background: #e67e22;"><i class="fa-solid fa-download"></i> Baixar MySQL 8.0</a>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 12px; text-align: left; border: 1px solid var(--glass-border);">
+                <h3 style="color: var(--primary); margin-bottom: 10px;"><i class="fa-solid fa-rocket"></i> Passo 2: O Sistema V50</h3>
+                <p style="color: var(--text-dim); margin-bottom: 15px;">Após instalar o banco, baixe o nosso ERP e comece a testar!</p>
+                <a href="https://github.com/BrunoAlencar1979/portfolio-psynet/releases/download/v50.0/Instalar_PsyNet_V50.exe" class="btn-baixar" style="margin-top: 0;"><i class="fa-solid fa-laptop-code"></i> Baixar PsyNet ERP (.exe)</a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--glass-border);">
+                <p style="color: var(--text-dim); margin-bottom: 15px;">Ficou com dúvida na instalação?</p>
+                <a href="https://wa.me/5527992584747?text=Olá Bruno, baixei o PsyNet e preciso de uma ajuda com a instalação." class="btn-outline" style="border-color: #25D366; color: #25D366;"><i class="fa-brands fa-whatsapp"></i> Falar com o Suporte</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
