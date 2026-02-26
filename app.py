@@ -8,20 +8,21 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # --- FUNÇÃO DE CONECTAR NA PLANILHA ---
+
 def conectar_planilha():
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     chave_secreta_servidor = os.environ.get('GOOGLE_CREDENTIALS')
     
     if chave_secreta_servidor:
-        # Lê da Nuvem (Render)
         credenciais_dict = json.loads(chave_secreta_servidor)
         creds = ServiceAccountCredentials.from_json_keyfile_dict(credenciais_dict, scope)
     else:
-        # Lê do seu Computador
         creds = ServiceAccountCredentials.from_json_keyfile_name("credenciais.json", scope)
         
     client = gspread.authorize(creds)
-    return client.open("PsyNet_Licencas").sheet1
+    
+    # MUDE APENAS ESTA ÚLTIMA LINHA:
+    return client.open_by_key("1chg_cheVeBLPS-7mfsXol77IZ2EfIXTk3nZlg8qpAkk")
 
 # --- ROTA 1: PÁGINA INICIAL (VITRINE PRINCIPAL) ---
 @app.route('/')
@@ -40,12 +41,16 @@ def liberar_download():
     whatsapp = request.form.get('whatsapp')
     
     try:
-        sheet = conectar_planilha()
+        planilha_mestra = conectar_planilha()
+        
+        # SELECIONA A ABA 2 (Índice 1) que você criou: "Leads_Site"
+        aba_leads = planilha_mestra.get_worksheet(1)
+        
         data_atual = datetime.now().strftime("%d/%m/%Y")
         
-        # Salva o contato na sua planilha para aparecer no Programa Matriz
-        linha_nova = [nome, f"WPP: {whatsapp}", data_atual, "LEAD - BAIXOU"]
-        sheet.append_row(linha_nova)
+        # Salva o contato de forma limpa apenas com os 3 dados necessários
+        linha_nova = [nome, whatsapp, data_atual]
+        aba_leads.append_row(linha_nova)
         
         # Leva o cliente para a tela final de sucesso
         return render_template('download_liberado.html', nome=nome)
