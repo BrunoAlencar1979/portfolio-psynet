@@ -3,257 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PsyNet | O ERP Definitivo para Oficinas</title>
+    <title>PsyNet | Engenharia, TI e Sistemas</title>
+    
+    <meta name="description" content="Especialista em manutenção de hardware, redes, criação de sites e sistemas em Vila Velha. Soluções de engenharia sob medida.">
+    <meta property="og:title" content="PsyNet | Soluções em TI & Engenharia">
+    <meta property="og:description" content="Manutenção especializada, sites e o sistema ERP definitivo para sua empresa.">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #00b4d8;
-            --secondary: #27ae60;
-            --dark-bg: #0a0a0c;
-            --card-bg: rgba(25, 25, 30, 0.7);
-        }
-        body { background-color: var(--dark-bg); color: #fff; font-family: 'Arial', sans-serif; overflow-x: hidden; }
-        
-        /* Reduzindo o espaçamento exagerado das seções */
-        .section { padding: 60px 0; }
-        .hero { padding: 120px 0 60px 0; min-height: auto; }
-        
-        /* O Efeito Neon da Digitação */
-        .neon-text { color: var(--primary); text-shadow: 0 0 10px rgba(0, 180, 216, 0.5); font-weight: 800; }
-        .cursor-blink { border-right: 3px solid var(--primary); animation: blink 0.7s infinite; }
-        @keyframes blink { 50% { border-color: transparent; } }
-
-        /* Banner de Adesão */
-        .setup-banner {
-            background: linear-gradient(90deg, rgba(0,180,216,0.1) 0%, rgba(39,174,96,0.2) 50%, rgba(0,180,216,0.1) 100%);
-            border: 1px solid rgba(39,174,96,0.5);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin: 0 auto 40px auto;
-            max-width: 800px;
-            box-shadow: 0 0 20px rgba(39,174,96,0.15);
-        }
-
-        /* Melhoria nos Cards de Preço */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .price-card {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px;
-            padding: 40px 30px; text-align: center; transition: 0.3s; position: relative; overflow: hidden;
-        }
-        .price-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(0, 180, 216, 0.15); }
-        .price-card.destaque { border: 2px solid var(--primary); background: rgba(0, 180, 216, 0.05); }
-        .price-card.premium { border: 2px solid #f1c40f; background: rgba(241, 196, 15, 0.05); }
-        
-        .price-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .price-card .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
-        .price-card .price span { font-size: 1rem; color: #aaa; font-weight: normal; }
-        .price-card ul { list-style: none; padding: 0; margin-bottom: 30px; text-align: left; }
-        .price-card ul li { margin-bottom: 12px; font-size: 1rem; color: #ccc; }
-        .price-card ul li i { margin-right: 10px; color: var(--secondary); }
-        
-        .btn-comprar {
-            display: inline-block; width: 100%; padding: 15px; border-radius: 8px; font-weight: bold;
-            text-decoration: none; transition: 0.3s;
-        }
-        .btn-basico { background: transparent; border: 1px solid #fff; color: #fff; }
-        .btn-basico:hover { background: #fff; color: #000; }
-        .btn-pro { background: var(--primary); color: #fff; box-shadow: 0 0 15px rgba(0, 180, 216, 0.4); }
-        .btn-pro:hover { background: #0096b4; }
-        .btn-fiscal { background: #f1c40f; color: #000; box-shadow: 0 0 15px rgba(241, 196, 15, 0.4); }
-        .btn-fiscal:hover { background: #d4ac0d; }
-
-        .tag-destaque { position: absolute; top: 15px; right: -35px; background: var(--primary); color: #fff; padding: 5px 40px; font-size: 0.8rem; font-weight: bold; transform: rotate(45deg); }
-        .tag-premium { position: absolute; top: 15px; right: -35px; background: #f1c40f; color: #000; padding: 5px 40px; font-size: 0.8rem; font-weight: bold; transform: rotate(45deg); }
-    </style>
 </head>
 <body>
-
     <div class="bg-gradient"></div>
 
-    <nav data-aos="fade-down" data-aos-duration="1000">
+    <nav>
         <div class="container nav-container">
             <a href="/" class="logo">Psy<span>Net</span></a>
             <ul class="menu">
-                <li><a href="#erp">O Sistema</a></li>
-                <li><a href="#portfolio">Módulo IA</a></li>
-                <li><a href="#planos">Planos e Preços</a></li>
-                <li><a href="#contato" class="btn-nav">Falar com Consultor</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="/erp" class="btn-erp-tab" style="border: 1px solid var(--secondary); color: var(--secondary); padding: 5px 15px; border-radius: 15px; text-decoration: none;">PsyNet ERP</a></li>
+                <li><a href="https://wa.me/5527992584747" class="btn-nav">WhatsApp</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container hero-content" style="text-align: center;">
-            <div class="text-box floating-hero" data-aos="zoom-in" data-aos-duration="1000" style="max-width: 900px; margin: 0 auto;">
-                <h2 style="color: var(--secondary); letter-spacing: 2px; font-size: 1.2rem; margin-bottom: 15px;">SOFTWARE HOUSE & ENGENHARIA</h2>
-                
-                <h1 style="font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px;">
-                    O ERP Definitivo para <br>
-                    <span class="neon-text" id="typing-text"></span><span class="cursor-blink">&nbsp;</span>
-                </h1>
-
-                <p style="font-size: 1.2rem; color: #bbb; margin-bottom: 40px; line-height: 1.6;">
-                    Gestão de balcão, inteligência artificial integrada, controle financeiro seguro e <br>emissão de Notas Fiscais em segundos. O fim do papel na sua empresa.
-                </p>
-                <div class="buttons" style="justify-content: center;">
-                    <a href="#planos" class="btn-pro" style="padding: 15px 40px; font-size: 1.1rem; border-radius: 30px;">Ver Pacotes e Preços</a>
-                    <a href="/teste-gratis" class="btn-basico" style="padding: 15px 40px; font-size: 1.1rem; border-radius: 30px; margin-left: 15px;"><i class="fa-solid fa-download"></i> Baixar Teste Grátis</a>
-                </div>
-            </div>
+    <header class="hero-services" style="padding-top: 150px; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem;">Tecnologia de <span class="neon-text">Ponta a Ponta</span></h1>
+            <p style="color: #bbb; max-width: 800px; margin: 20px auto;">Consultoria especializada em hardware, desenvolvimento de software e infraestrutura em Vila Velha e Vitória.</p>
         </div>
     </header>
 
-    <section id="erp" class="section" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px;">
-        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
-            <div style="flex: 1; min-width: 300px;" data-aos="fade-right">
-                <div style="display: inline-block; background: var(--secondary); color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 20px;">VERSÃO 50 LIBERADA</div>
-                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Muito mais que um PDV.<br>Uma <span style="color: var(--primary);">Máquina de Vendas.</span></h2>
-                <p style="color: #bbb; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">
-                    O PsyNet ERP foi desenhado do zero para a realidade do balcão de oficinas e lojas de peças. Híbrido, seguro e extremamente rápido.
-                </p>
-                <ul style="list-style: none; color: #ddd; margin-bottom: 30px; font-size: 1.1rem;">
-                    <li style="margin-bottom: 15px;"><i class="fa-solid fa-check-circle" style="color: var(--secondary); margin-right: 10px; font-size: 1.3rem;"></i> <strong>White-Label:</strong> Orçamentos em PDF com a SUA logomarca.</li>
-                    <li style="margin-bottom: 15px;"><i class="fa-solid fa-check-circle" style="color: var(--secondary); margin-right: 10px; font-size: 1.3rem;"></i> <strong>Gestão de Rede:</strong> Use em quantos computadores quiser.</li>
-                    <li style="margin-bottom: 15px;"><i class="fa-solid fa-check-circle" style="color: var(--secondary); margin-right: 10px; font-size: 1.3rem;"></i> <strong>Balanço Blindado:</strong> Acesso financeiro bloqueado por palavra-passe.</li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 300px; text-align: center;" data-aos="fade-left">
-                <img src="{{ url_for('static', filename='img/print_erp.png') }}" alt="Tela do PsyNet ERP" style="width: 100%; border-radius: 15px; box-shadow: 0 20px 50px rgba(0, 180, 216, 0.2); border: 1px solid rgba(255,255,255,0.1);">
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="section">
-        <div class="container" data-aos="fade-up">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;">Inteligência <span style="color: var(--primary);">Artificial Integrada</span></h2>
-            <p style="text-align: center; color: #bbb; margin-bottom: 50px; font-size: 1.1rem;">Veja o assistente de cotação de peças em ação antes de assinar.</p>
+    <section id="servicos" class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
             
-            <div class="single-video-wrapper glass" style="max-width: 900px; margin: 0 auto; border-radius: 15px; overflow: hidden; padding: 20px;">
-                <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; width: 100%;">
-                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;" src="https://www.youtube.com/embed/7YzXQvQloaI" title="Demonstração PsyNet ERP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <div class="service-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px;">
+                <i class="fa-solid fa-microchip" style="color: var(--primary); font-size: 2rem;"></i>
+                <h3>Manutenção & Hardware</h3>
+                <p>Upgrades de performance, reparo de notebooks e consultoria em hardware profissional.</p>
+                <a href="https://wa.me/5527992584747?text=Olá Bruno! Preciso de suporte técnico para um computador." style="color: var(--primary); text-decoration: none; font-weight: bold;">Solicitar Suporte →</a>
             </div>
+
+            <div class="service-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px;">
+                <i class="fa-solid fa-code" style="color: var(--primary); font-size: 2rem;"></i>
+                <h3>Sites & Landing Pages</h3>
+                <p>Sua empresa com presença digital profissional e otimizada para o Google.</p>
+                <a href="https://wa.me/5527992584747?text=Olá Bruno! Gostaria de um orçamento para criação de um site." style="color: var(--primary); text-decoration: none; font-weight: bold;">Ver Orçamentos →</a>
+            </div>
+
+            <div class="service-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px;">
+                <i class="fa-solid fa-server" style="color: var(--primary); font-size: 2rem;"></i>
+                <h3>Sistemas Customizados</h3>
+                <p>Desenvolvimento de automações e softwares sob medida em Python e MySQL.</p>
+                <a href="https://wa.me/5527992584747?text=Olá Bruno! Tenho interesse em desenvolver um sistema personalizado." style="color: var(--primary); text-decoration: none; font-weight: bold;">Consultar Projeto →</a>
+            </div>
+
         </div>
     </section>
 
-    <section id="planos" class="section" style="margin-bottom: 60px;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">Escolha o <span style="color: var(--primary);">Seu Motor</span></h2>
+    <section id="portfolio" class="container" style="padding: 80px 0;">
+        <h2 style="text-align: center; margin-bottom: 40px;">Projetos de <span style="color:var(--primary)">Engenharia</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
             
-            <div class="setup-banner" data-aos="zoom-in">
-                <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 10px;"><i class="fa-solid fa-server"></i> Instalação & Setup do Servidor</h3>
-                <p style="color: #ddd; font-size: 1.1rem; margin-bottom: 0;">Taxa única de licenciamento vitalício do software e criação de Banco de Dados: <strong style="color: var(--secondary); font-size: 1.4rem;">R$ 299,00</strong></p>
+            <div class="glass" style="padding: 30px;">
+                <h4 style="color: var(--secondary);">PsyNet ERP V50</h4>
+                <p>Sistema completo de gestão comercial com IA integrada para precificação de peças e emissão de PDFs profissionais.</p>
+                <a href="/erp" style="color: white;">Conhecer o Software</a>
             </div>
 
-            <div class="pricing-grid">
-                <div class="price-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3 style="color: #fff;">Plano BASIC</h3>
-                    <div class="price">R$ 89,90<span>/mês</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Gestão de Clientes e Veículos</li>
-                        <li><i class="fa-solid fa-check"></i> Orçamentos e O.S. em PDF</li>
-                        <li><i class="fa-solid fa-check"></i> Controle de Estoque e PDV</li>
-                        <li><i class="fa-solid fa-check"></i> Balanço Financeiro Seguro</li>
-                        <li><i class="fa-solid fa-check"></i> Lembrete de Clientes (CRM)</li>
-                        <li style="color: #555;"><i class="fa-solid fa-xmark" style="color: #555;"></i> Sem Inteligência Artificial</li>
-                    </ul>
-                    <a href="https://wa.me/5527992584747?text=Olá%20Bruno!%20Gostaria%20de%20adquirir%20o%20PsyNet%20no%20Plano%20BASIC." class="btn-comprar btn-basico" target="_blank">Quero o Basic</a>
-                </div>
-
-                <div class="price-card destaque" data-aos="fade-up" data-aos-delay="200">
-                    <div class="tag-destaque">MAIS VENDIDO</div>
-                    <h3 style="color: var(--primary);">Plano PRO</h3>
-                    <div class="price">R$ 109,90<span>/mês</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Tudo do plano Basic, mais:</strong></li>
-                        <li><i class="fa-solid fa-check"></i> 🤖 Assistente Gemini (IA de Peças)</li>
-                        <li><i class="fa-solid fa-check"></i> 🖼️ Personalização de Logomarca</li>
-                        <li><i class="fa-solid fa-check"></i> 📲 Disparo Direto para WhatsApp</li>
-                        <li><i class="fa-solid fa-check"></i> ☁️ Link Exclusivo na Nuvem</li>
-                        <li style="color: #555;"><i class="fa-solid fa-xmark" style="color: #555;"></i> Sem Módulo Fiscal SEFAZ</li>
-                    </ul>
-                    <a href="https://wa.me/5527992584747?text=Olá%20Bruno!%20Gostaria%20de%20adquirir%20o%20PsyNet%20no%20Plano%20PRO%20(Com%20IA)." class="btn-comprar btn-pro" target="_blank">Assinar o PRO</a>
-                </div>
-
-                <div class="price-card premium" data-aos="fade-up" data-aos-delay="300">
-                    <div class="tag-premium">EMPRESARIAL</div>
-                    <h3 style="color: #f1c40f;">Plano FISCAL</h3>
-                    <div class="price">R$ 149,90<span>/mês</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> <strong>Tudo do plano PRO, mais:</strong></li>
-                        <li><i class="fa-solid fa-check"></i> 🧾 Emissão de NF-e (Cliente)</li>
-                        <li><i class="fa-solid fa-check"></i> 📥 Entrada Auto. de XML (Fornecedor)</li>
-                        <li><i class="fa-solid fa-check"></i> 🔒 Gestão de Certificado A1</li>
-                        <li><i class="fa-solid fa-check"></i> 📊 Relatórios para o seu Contador</li>
-                        <li><i class="fa-solid fa-check"></i> 🛡️ Suporte Técnico Prioritário</li>
-                    </ul>
-                    <a href="https://wa.me/5527992584747?text=Olá%20Bruno!%20Gostaria%20de%20implantar%20o%20PsyNet%20Completo%20com%20o%20Módulo%20FISCAL." class="btn-comprar btn-fiscal" target="_blank">Falar com Consultor</a>
-                </div>
+            <div class="glass" style="padding: 30px;">
+                <h4 style="color: var(--secondary);">IoT & Dashcam Cloud</h4>
+                <p>Desenvolvimento de gateways com ESP32 e modems 4G para upload automatizado de vídeos em tempo real.</p>
             </div>
+
         </div>
     </section>
 
-    <footer id="contato" style="background: #050505; padding: 60px 0 30px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container footer-content" style="text-align: center;">
-            <h2 style="font-size: 2rem; margin-bottom: 30px;">Pronto para automatizar a sua empresa?</h2>
-            <div class="contacts-area" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 40px;">
-                <a href="https://wa.me/5527992584747" target="_blank" class="btn-comprar btn-pro" style="width: auto; padding: 15px 30px; border-radius: 30px;">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem; margin-right: 10px;"></i> Chamar no WhatsApp
-                </a>
-            </div>
-            <p style="color: #555; font-size: 0.9rem;">© 2026 PsyNet Tecnologia. Desenvolvido no Brasil.</p>
-        </div>
+    <footer style="text-align: center; padding: 40px; color: #555;">
+        <p>© 2026 PsyNet Tecnologia | Vila Velha - ES</p>
     </footer>
-
-    <a href="https://wa.me/5527992584747" target="_blank" class="whatsapp-float" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s;">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-        AOS.init(); 
-
-        const textElement = document.getElementById('typing-text');
-        const words = ["Oficinas Mecânicas", "Lojas de Peças", "Auto Centers", "Alta Performance"]; 
-        let wordIndex = 0; 
-        let charIndex = 0; 
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100; 
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2500; // Tempo de pausa com a palavra completa
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false; 
-                wordIndex = (wordIndex + 1) % words.length; 
-                typeSpeed = 500; // Tempo de pausa antes de escrever a próxima
-            }
-            
-            setTimeout(type, typeSpeed);
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(type, 1000); // Aguarda 1 segundo antes de começar a digitar
-        });
-    </script>
 </body>
 </html>
