@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 from datetime import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
 
@@ -55,6 +55,15 @@ def erp():
 @app.route('/teste-gratis')
 def teste_gratis():
     return render_template('teste_gratis.html')
+
+@app.route('/politica-privacidade-rolador-rpg')
+def politica_privacidade_rolador_rpg():
+    return render_template('politica_privacidade_rolador_rpg.html')
+
+@app.route('/app-ads.txt')
+def app_ads_txt():
+    static_dir = os.path.join(app.root_path, 'static')
+    return send_from_directory(static_dir, 'app-ads.txt', mimetype='text/plain; charset=utf-8')
 
 @app.route('/liberar_download', methods=['POST'])
 def liberar_download():
