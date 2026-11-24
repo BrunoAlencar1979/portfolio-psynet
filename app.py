@@ -60,6 +60,10 @@ def teste_gratis():
 def politica_privacidade_rolador_rpg():
     return render_template('politica_privacidade_rolador_rpg.html')
 
+@app.route('/termos-servico-rolador-rpg')
+def termos_servico_rolador_rpg():
+    return render_template('termos_servico_rolador_rpg.html')
+
 @app.route('/app-ads.txt')
 def app_ads_txt():
     static_dir = os.path.join(app.root_path, 'static')
